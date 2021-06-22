@@ -1,4 +1,5 @@
 import React from "react";
+import DateComponent from "./DateComponent"
 import CartWidget from "./CartWidget";
 
 export default function NavBar(){
@@ -22,8 +23,13 @@ export default function NavBar(){
                     <li className="nav-item">
                         <a href="pages/contacto.html" className="nav-link">Contact Us</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link">
+                            <DateComponent/>
+                        </a>
+                    </li>
                 </ul>
-                <CartWidget/>
+                <CartWidget cantidad={5}/>
             </div>
         </nav>
         

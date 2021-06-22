@@ -1,11 +1,11 @@
 import React from "react";
+import ItemCount from "./ItemCount";
 
 export default function ItemListContainer({name}){
     return(
-        <div>
-            <h1>
-                Bienvenido {name} a la nueva tienda Coder
-            </h1>
+        <div className="d-flex justify-content-center">
+            <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}} />
+            
         </div>
     );
 };
