@@ -1,11 +1,14 @@
 import React from "react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
+import Grid from '@material-ui/core/Grid';
 
 export default function ItemListContainer({name}){
     return(
-        <div className="d-flex justify-content-center">
-            <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}} />
-            
-        </div>
+        <Grid container justify="center" className="">            
+            <Grid item xs={12}>
+                <ItemList />
+            </Grid>            
+        </Grid>
     );
 };
