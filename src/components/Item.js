@@ -10,7 +10,7 @@ const Item = (element) =>{
     return(
         <Grid item >
             <Paper style={{height:460, width: 350, marginBottom: 20, borderRadius: 20, backgroundColor: '#dce8df'}}>
-                <div key={element.objeto.id} className="">                    
+                <div  className="">                    
                     <img style={{borderTopLeftRadius: 20, borderTopRightRadius:20}}  src={element.objeto.picture} alt=""/>                    
                     <div >
                         <h4 className="">
@@ -21,7 +21,7 @@ const Item = (element) =>{
                         </h5>
                     </div>
                     <div>                        
-                        <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}} />                                                     
+                        <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}}  id={element.objeto.title} />                                                     
                     </div>
                 </div>
             </Paper>            

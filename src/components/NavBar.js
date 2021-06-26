@@ -11,7 +11,7 @@ export default function NavBar(){
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
+            <div className="collapse navbar-collapse" id="navbarToggler">
                 <ul className="navbar-nav mr-auto">
                             
                     <li className="nav-item">

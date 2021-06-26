@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Reloj from "./Reloj";
 
 export default class DateComponent extends React.Component {
