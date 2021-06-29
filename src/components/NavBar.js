@@ -1,4 +1,5 @@
 import React from "react";
+import DateComponent from "./DateComponent"
 import CartWidget from "./CartWidget";
 
 export default function NavBar(){
@@ -6,11 +7,11 @@ export default function NavBar(){
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
-            <a class="navbar-brand" href="#">Coder Shop</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a className="navbar-brand" href="#">Coder Shop</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarToggler">
+            <div className="collapse navbar-collapse" id="navbarToggler">
                 <ul className="navbar-nav mr-auto">
                             
                     <li className="nav-item">
@@ -22,8 +23,13 @@ export default function NavBar(){
                     <li className="nav-item">
                         <a href="pages/contacto.html" className="nav-link">Contact Us</a>
                     </li>
+                    <li className="nav-item">
+                        <a className="nav-link">
+                            <DateComponent/>
+                        </a>
+                    </li>
                 </ul>
-                <CartWidget/>
+                <CartWidget cantidad={5}/>
             </div>
         </nav>
         
