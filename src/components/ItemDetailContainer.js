@@ -5,33 +5,40 @@ import { CircularProgress } from "@material-ui/core";
 
 
 
+const getItems = () => {  
+        return  fetch('https://mocki.io/v1/ae8fee15-0e70-4eaa-a54c-ab9ce2453e76')
+};
 
 export default function ItemDetailContainer(){
-    const [productos, setProductos] = useState([]);
-
-    async function obtenerProductos(){
-        const respuesta = await fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055");
-        const data = await respuesta.json();
-        console.log("ultima prueba" ,respuesta);
-        setProductos([...data.results]);
-    }
-    useEffect(() => {
-        obtenerProductos();
-        
+    const [items, setItems] = useState([]);
+    
+    useEffect(() => { 
+        setTimeout( ()=>{       
+            console.log("getItems",getItems())
+            getItems()
+            .then(response => response.json())
+            .then(data => {
+                console.log("data", data)
+                setItems(data);}) 
+        },2000 )    
     }, []);
 
     return(        
-        <Grid container justify="center" className="">
-            {productos.length === 0? (
-                <>
-                    <CircularProgress />
-                </>
-            ):(            
-                <Grid container>
-                        {productos.map((element)=>(   
-                        <ItemDetail objeto={element} key={element.id}/>                            
-                        ))}
+        <Grid container  justify="center" className="">
+            {items.length === 0? (
+                <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
+                    <Grid item xs={12}>
+                        <CircularProgress />
+                    </Grid>
                 </Grid>
+            ):(            
+                <>
+                    <Grid item xs={false} sm={1}/>       
+                    <Grid item xs={12} sm={10}>
+                        <ItemDetail objeto={items}/>
+                    </Grid>
+                    <Grid item xs={false} sm={1}/>
+                </>
             )}            
         </Grid>
     );

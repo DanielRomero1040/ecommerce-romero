@@ -1,37 +1,40 @@
 import React from "react";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import { Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+
+import {    
+    Link
+  } from "react-router-dom";
+
+
 import DateComponent from "./DateComponent"
 import CartWidget from "./CartWidget";
 
 export default function NavBar(){
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
-            <a className="navbar-brand" href="#">Coder Shop</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarToggler">
-                <ul className="navbar-nav mr-auto">
-                            
-                    <li className="nav-item">
-                        <a href="pages/Sobremi.html" className="nav-link">About us</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="pages/galeria.html" className="nav-link">Products</a>
-                    </li>         
-                    <li className="nav-item">
-                        <a href="pages/contacto.html" className="nav-link">Contact Us</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link">
-                            <DateComponent/>
-                        </a>
-                    </li>
-                </ul>
+    <AppBar position="static" style={{flexGrow:1}}>
+        <Toolbar>            
+            <Typography variant="h6" >
+                <Button>
+                    <Link style={{color: "white", textDecoration:"none"}} to="/components/ItemListContainer.js">Productos</Link>
+                </Button>
+            </Typography>
+            <Typography variant="h6" style={{flexGrow:1}} >
+                <Button>
+                    <Link style={{color: "white", textDecoration:"none"}} to="/components/ItemDetailContainer.js">Detalle de Productos</Link>
+                </Button>
+            </Typography>
+
+            <DateComponent/>
+            <Button color="inherit">
                 <CartWidget cantidad={5}/>
-            </div>
-        </nav>
+            </Button>
+        </Toolbar>
+      </AppBar>
         
      );
 }
