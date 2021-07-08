@@ -18,17 +18,15 @@ const ItemDetail = (element) =>{
                 <Card style={{height:600, margin: 20, padding: 20,  backgroundColor: '#dce8df', display: "flex", textAlign:"center"}}> 
                     <CardMedia
                         style={{height:550, width: 550, marginRight: 20, borderRadius: 5 }}
-                        image={element.objeto.imagen}              
+                        image={element.objeto.thumbnail}              
                         />                            
                     <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: 500}}>
                         <Typography variant="h3" component="h2">
-                            {element.objeto.nombre}
+                            {element.objeto.title}
                         </Typography>
-                        <Typography variant="body1" color="textSecondary" component="p" gutterBottom >
-                            {element.objeto.descripcion}
-                        </Typography>
+                        
                         <Typography variant="h3" component="h3">
-                            {element.objeto.precio} $
+                            {element.objeto.price} $
                         </Typography>
                         <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}}  id={element.objeto.title} />
                     </CardContent>  

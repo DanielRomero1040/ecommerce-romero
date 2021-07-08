@@ -2,26 +2,32 @@ import React,{useState, useEffect} from "react";
 import ItemDetail from "./ItemDetail";
 import Grid from '@material-ui/core/Grid';
 import { CircularProgress } from "@material-ui/core";
+import { useParams } from "react-router";
 
 
 
-const getItems = () => {  
-        return  fetch('https://mocki.io/v1/ae8fee15-0e70-4eaa-a54c-ab9ce2453e76')
-};
 
 export default function ItemDetailContainer(){
     const [items, setItems] = useState([]);
+    let {productoId} = useParams();
+    let {categoryId} = useParams();
     
+    const getItems = () => {  
+            return  fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}`)
+    };
+
     useEffect(() => { 
-        setTimeout( ()=>{       
+               
             console.log("getItems",getItems())
             getItems()
             .then(response => response.json())
             .then(data => {
-                console.log("data", data)
-                setItems(data);}) 
-        },2000 )    
-    }, []);
+                let dataResults = data.results;
+                let dataBuscada = dataResults.find( (el)=> el.id === productoId)
+                console.log("dataBuscada", dataBuscada);
+                setItems(dataBuscada);}) 
+            
+    }, [productoId]);
 
     return(        
         <Grid container  justify="center" className="">
