@@ -10,16 +10,12 @@ export default class CartWidget extends React.Component{
     }
     render(){
         return (
-            <span className="">
-                <a>
-
+            <span className="">             
                 <Badge badgeContent={this.state.cantidad} color="primary">
                     <ShoppingCartIcon
                     style={{ color: "white" }}                   
                     /> 
-                </Badge>    
-                    
-                </a>
+                </Badge> 
             </span>
         )
     };
