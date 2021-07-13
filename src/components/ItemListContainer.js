@@ -1,23 +1,8 @@
-<<<<<<< HEAD
-import React from "react";
-import ItemCount from "./ItemCount.js";
-
-export default function ItemListContainer({name}){
-    return(
-        <div>
-            <h1>
-                Bienvenido {name} a la nueva tienda Coder
-            </h1>
-            <ItemCount/>
-        </div>
-=======
 import React,{useState, useEffect} from "react";
 import ItemList from "./ItemList";
 import Grid from '@material-ui/core/Grid';
 import { CircularProgress } from "@material-ui/core";
 import { useParams } from "react-router";
-import { Button } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
 
 
 export default function ItemListContainer({name}){
@@ -25,12 +10,20 @@ export default function ItemListContainer({name}){
     let {categoryId} = useParams();
 
     const traerProductos = () => {
-        fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log("data", data)
-            setProductos(data.results);
-        });        
+        setProductos([]);
+        if(categoryId){
+            fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}`)
+            .then(response => response.json())
+            .then(data => {
+                setProductos(data.results);
+            });
+        }else{
+            fetch(`https://api.mercadolibre.com/sites/MLA/search?category=MLA1144`)
+            .then(response => response.json())
+            .then(data => {
+                setProductos(data.results);
+            });
+        }
     };
 
     useEffect(() => {
@@ -41,24 +34,17 @@ export default function ItemListContainer({name}){
         <Grid container justify="center" className="">
             {productos.length === 0? (
                 <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
-                    <CircularProgress/>
-                    <Typography variant="h6" >
-                        <Button>
-                            Selecciona una Categoría en el menú
-                        </Button>
-                    </Typography>
-                    
+                    <CircularProgress/> 
                 </Grid>
             ):(  
                 <>   
                     <Grid item xs={false} sm={1}/>       
                     <Grid item xs={12} sm={10}>
-                        <ItemList array={productos} category={categoryId}/>
+                        <ItemList array={productos}/>
                     </Grid>
                     <Grid item xs={false} sm={1}/>
                 </>
             )}            
         </Grid>
->>>>>>> 48609cead292ee49ff876c6da860859a10929951
     );
 };

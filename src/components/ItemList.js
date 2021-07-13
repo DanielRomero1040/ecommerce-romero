@@ -15,7 +15,7 @@ const ItemList = (props) => {
 
             <Grid container spacing={5} justify="center">                            
                 {props.array.map((element)=>(   
-                    <Item objeto={element} key={element.id} category={props.category}/>                            
+                    <Item objeto={element} key={element.id}/>                            
                     ))}
             </Grid> 
         </Grid>

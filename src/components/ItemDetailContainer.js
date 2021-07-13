@@ -10,22 +10,17 @@ import { useParams } from "react-router";
 export default function ItemDetailContainer(){
     const [items, setItems] = useState([]);
     let {productoId} = useParams();
-    let {categoryId} = useParams();
     
     const getItems = () => {  
-            return  fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}`)
+            return  fetch(`https://api.mercadolibre.com/items/${productoId}`)
     };
 
-    useEffect(() => { 
-               
-            console.log("getItems",getItems())
+    useEffect(() => {             
             getItems()
             .then(response => response.json())
             .then(data => {
-                let dataResults = data.results;
-                let dataBuscada = dataResults.find( (el)=> el.id === productoId)
-                console.log("dataBuscada", dataBuscada);
-                setItems(dataBuscada);}) 
+                setItems(data)                
+                }) 
             
     }, [productoId]);
 
@@ -38,13 +33,13 @@ export default function ItemDetailContainer(){
                     </Grid>
                 </Grid>
             ):(            
-                <>
+                <Grid>
                     <Grid item xs={false} sm={1}/>       
                     <Grid item xs={12} sm={10}>
                         <ItemDetail objeto={items}/>
                     </Grid>
                     <Grid item xs={false} sm={1}/>
-                </>
+                </Grid>
             )}            
         </Grid>
     );

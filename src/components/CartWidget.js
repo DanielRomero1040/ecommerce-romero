@@ -1,22 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Badge } from '@material-ui/core';
 
-export default class CartWidget extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = { cantidad: 0}
+//context
 
-    }
-    render(){
-        return (
-            <span className="">             
-                <Badge badgeContent={this.state.cantidad} color="primary">
-                    <ShoppingCartIcon
-                    style={{ color: "white" }}                   
-                    /> 
-                </Badge> 
-            </span>
-        )
-    };
+import {CartContext} from '../context/cartContext';
+
+
+ const CartWidget = (props) => {
+    const cart = useContext(CartContext);
+    
+    return (
+        <span className="">             
+            <Badge badgeContent={cart} color="primary">
+                <ShoppingCartIcon
+                style={{ color: "white" }}                   
+                /> 
+            </Badge> 
+        </span>
+    );
+    
+
 };
+
+export default CartWidget;

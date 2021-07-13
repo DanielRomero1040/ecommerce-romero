@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import ItemCount from "./ItemCount";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -15,7 +14,7 @@ const Item = (element) =>{
         <Grid item xs={12} sm={6} md={4} lg={3}>
             
             <Card style={{height: "auto", width: 280}}>
-                <Link style={{color: "white", textDecoration:"none"}} to={`/category/${element.category}/products/${element.objeto.id}`}>
+                <Link style={{color: "white", textDecoration:"none"}} to={`/products/${element.objeto.id}`}>
                     <CardMedia
                         image={element.objeto.thumbnail}
                         title={element.objeto.title}
@@ -34,8 +33,7 @@ const Item = (element) =>{
                         component="h4"
                     >
                         {element.objeto.price} $
-                    </Typography>
-                    <ItemCount stock={10} initial={1} onAdd={()=>{alert("se agrega al carrito")}}  id={element.objeto.title} />    
+                    </Typography>    
                 </CardContent>
             </Card>                
                     
