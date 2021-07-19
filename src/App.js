@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import './App.css';
 
 import {
@@ -11,18 +11,17 @@ import {
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Footer from './components/Footer';
+import Cart from "./components/Cart";
 import { Grid } from '@material-ui/core';
 
 //Context desafio
 
-import {CartContext} from './context/cartContext';
+import CartCustomProvider from './context/CartContext';
 
-
-
-function App() {
-  const [cart,setCart] = useState([3]) 
+function App() {   
   return (
-    <CartContext.Provider value={cart}>
+    <CartCustomProvider>
       <Grid container direction="column">
         <Router>
           <NavBar/>
@@ -37,10 +36,14 @@ function App() {
             <Route exact path="/products/:productoId">
               <ItemDetailContainer/>
             </Route>
-          </Switch> 
+            <Route exact path="/cart">
+              <Cart/>
+            </Route>
+          </Switch>
+          <Footer/> 
         </Router>
       </Grid>
-    </CartContext.Provider>
+    </CartCustomProvider>
   );
 }
 

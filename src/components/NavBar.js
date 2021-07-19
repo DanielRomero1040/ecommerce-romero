@@ -40,7 +40,9 @@ export default function NavBar(){
             </Typography>
             <DateComponent/>
             <Button color="inherit">
-                <CartWidget cantidad={5}/>
+                <Link to={`/cart`}>
+                    <CartWidget/>
+                </Link>
             </Button>
         </Toolbar>
       </AppBar>

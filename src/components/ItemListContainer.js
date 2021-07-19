@@ -31,7 +31,7 @@ export default function ItemListContainer({name}){
     }, [categoryId]);
 
     return(        
-        <Grid container justify="center" className="">
+        <Grid container justify="center" className="" style={{minHeight:"53vh"}}>
             {productos.length === 0? (
                 <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
                     <CircularProgress/> 

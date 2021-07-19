@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import { Grid } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -12,35 +12,51 @@ import ItemCount from "./ItemCount";
 
 import {Link} from "react-router-dom";
 
+// context
+
+import { CartContext } from "../context/CartContext";
+
 
 const ItemDetail = (element) =>{
-    const [count, setCount] = useState(1)
-    const [showButton, setShowButton] = useState(true)
+    const [count, setCount] = useState(1);
+    const [showButton, setShowButton] = useState(true);
+    const {addItemToCart} = useContext(CartContext);
 
     const onAdd = (value, event) =>{
         if(event){
-            console.log(!showButton)
             setShowButton(!showButton)
             setCount(value)
-            console.log("se guarda el valor en el padre", value) 
+            //-------context-------
+            addItemToCart( element, value);
         }
     }
 
     return(
         <Grid item xs={12} justifycontent="center">
             <Box justifyContent="center">
-                <Card style={{height:600, margin: 20, padding: 20,  backgroundColor: '#dce8df', display: "flex", textAlign:"center"}}> 
+                <Card style={{width: '90vw' , padding: 20, display: "flex", justifyContent:"space-around" ,textAlign:"center"}}> 
                     <CardMedia
                         style={{height:550, width: 550, marginRight: 20, borderRadius: 5 }}
                         image={element.objeto.thumbnail}              
                         />                            
-                    <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: 500}}>
+                    <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: '50vw'}}>
                         <Typography variant="h3" component="h2">
                             {element.objeto.title}
                         </Typography>
-                        <Typography variant="h3" component="h3">
+
+                        <Typography variant="h4" component="h3">
                             {element.objeto.price} $
                         </Typography>
+                        <Typography variant="body1" component="p">
+                            Cantidad disponible: {element.objeto.available_quantity}
+                        </Typography>
+                        <Typography variant="body1" component="p">
+                            {element.objeto.warranty}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            ID:{element.objeto.id}
+                        </Typography>
+
                         {showButton===true? (
                             <ItemCount stock={element.objeto.available_quantity} initial={1} onAdd={onAdd}  id={element.objeto.title} />
                         ):(
@@ -48,7 +64,7 @@ const ItemDetail = (element) =>{
                                 <Button
                                     startIcon={<ShoppingCartIcon />}
                                     variant="contained"
-                                    color="success"
+                                    color="secondary"
                                     onClick={()=> {}} > 
                                     Terminar mi compra 
                                 </Button>

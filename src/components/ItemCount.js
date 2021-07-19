@@ -47,9 +47,7 @@ const ItemCount = ({stock, initial, onAdd, id}) => {
             startIcon={<AddShoppingCartIcon />}
             variant="contained"
             color="primary"
-            onClick={(event)=> {
-                console.log(event)
-                console.log("cuenta desde el hijo", count)                
+            onClick={(event)=> {               
                 onAdd(count,event)}}
             > 
             Agregar al carrito 
