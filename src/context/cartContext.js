@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 const CartCustomProvider = ({children}) =>{
     const [cart,setCart] = useState([]);
+    const [total, setTotal] = useState(0);
 
     const addItemToCart = ( element, value)=>{
         if(isInCart(element.objeto.id)){
@@ -28,7 +29,7 @@ const CartCustomProvider = ({children}) =>{
     }    
 
     return(
-        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, isInCart}}>
+        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, total, setTotal}}>
             {children}
         </CartContext.Provider>
     )
