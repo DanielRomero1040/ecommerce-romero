@@ -7,4 +7,3 @@ Dependencias utilizadas:
 
 Uso de la API de Mercado Libre para obtener las categorías y los productos.
 
-Utilice las direcciones de la url con el orden por categoria y por producto, ejemplo: /categoria/:categoryId/productos/:productId
