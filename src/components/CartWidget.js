@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Badge } from '@material-ui/core';
 
@@ -11,8 +11,6 @@ import {CartContext} from '../context/CartContext';
 
     const cartIndicator = cart.reduce((acum, e ) => acum += e.quantity, 0);
 
-    useEffect(() => {
-    }, [cart])
     
     return (
         <span className="">             
