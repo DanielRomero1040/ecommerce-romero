@@ -3,7 +3,9 @@ import { Grid } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import Button from "@material-ui/core/Button";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { TextField } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import AddCircle from "@material-ui/icons/AddCircle";
+import RemoveCircle from "@material-ui/icons/RemoveCircle";
 
 
 const ItemsCart = (props) => {
@@ -20,20 +22,29 @@ const ItemsCart = (props) => {
                     Precio unitario: {props.objeto.item.price} $
                 </Typography>
             </Grid>
-            <Grid item xs={2} sm={2}>
-                <Typography variant="body1" component="p">
-                    unidades:
+            <Grid item xs={2} sm={2} style={{display:"flex", alignItems:"center"}}>                
+                <IconButton
+                size="medium"
+                variant="contained"
+                color="secondary"
+                onClick={()=>{ props.substractOne(props.objeto.item.id) }}
+                >
+                    <RemoveCircle />
+                </IconButton> 
+                <Typography variant="body1" component="p" style={{textAlign:"center"}}>
+                    {props.objeto.quantity}
                 </Typography>
-                <TextField
-                type="number"
-                value={props.objeto.quantity}
-                size="small"
-                variant="outlined"
-                style={{width:80, marginLeft: 10}}
-                />
+                <IconButton
+                size="medium" 
+                variant="contained"
+                color="primary"
+                onClick={()=>{ props.addOne(props.objeto.item.id) }}
+                >
+                    <AddCircle />
+                </IconButton>
             </Grid>
-            <Grid item xs={2} sm={2}>
-                <Typography variant="body1" component="p">
+            <Grid item xs={2} sm={2} style={{display: "flex", justifyContent: "center",alignItems:"center"}}>
+                <Typography variant="body1" component="p" >
                     SubTotal:{props.objeto.quantity*props.objeto.item.price} $
                 </Typography>                                
             </Grid>

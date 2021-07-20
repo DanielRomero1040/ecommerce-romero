@@ -11,16 +11,18 @@ export default function ItemDetailContainer(){
     const [items, setItems] = useState([]);
     let {productoId} = useParams();
     
-    const getItems = () => {  
-            return  fetch(`https://api.mercadolibre.com/items/${productoId}`)
-    };
-
-    useEffect(() => {             
-            getItems()
-            .then(response => response.json())
-            .then(data => {
-                setItems(data)                
-                }) 
+    
+    useEffect(() => { 
+        
+        const getItems = () => {  
+                return  fetch(`https://api.mercadolibre.com/items/${productoId}`)
+        };
+    
+        getItems()
+        .then(response => response.json())
+        .then(data => {
+            setItems(data)                
+            }) 
             
     }, [productoId]);
 

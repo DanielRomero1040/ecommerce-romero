@@ -8,9 +8,27 @@ const CartCustomProvider = ({children}) =>{
 
     const addItemToCart = ( element, value)=>{
         if(isInCart(element.objeto.id)){
+            if(element.objeto.available_quantity < value){
+            }
             console.log('no se agrega al carrito')
         }else{
             setCart([...cart,{"item": element.objeto , "quantity":value}])
+        }        
+    }
+
+    const addOneItem = (id) => {
+        let index = cart.findIndex( el => el.item.id === id)
+        if(cart[index].quantity < cart[index].item.available_quantity){
+            cart[index].quantity += 1      
+            setCart([...cart])
+        }        
+    }
+
+    const substractOneItem = (id) => {
+        let index = cart.findIndex( el => el.item.id === id)
+        if(cart[index].quantity > 1){
+            cart[index].quantity -= 1      
+            setCart([...cart])
         }        
     }
 
@@ -29,7 +47,7 @@ const CartCustomProvider = ({children}) =>{
     }    
 
     return(
-        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, total, setTotal}}>
+        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, total, setTotal, addOneItem,substractOneItem}}>
             {children}
         </CartContext.Provider>
     )
