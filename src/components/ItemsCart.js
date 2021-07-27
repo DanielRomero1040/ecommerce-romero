@@ -12,7 +12,7 @@ const ItemsCart = (props) => {
     return(
         <Grid container item xs={12} sm={12}>
             <Grid item xs={2} sm={2}>
-                <img src={props.objeto.item.thumbnail} alt={`${props.objeto.item.title}`}/>                                
+                <img src={props.objeto.item.thumbnail} alt={`${props.objeto.item.title}`} style={{backgroundSize: 'contain', width:150}}/>                                
             </Grid>
             <Grid item xs={6} sm={6}>
                 <Typography variant="h6" component="h6">

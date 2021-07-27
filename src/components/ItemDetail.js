@@ -36,7 +36,7 @@ const ItemDetail = (element) =>{
             <Box justifyContent="center">
                 <Card style={{width: '90vw' , padding: 20, display: "flex", justifyContent:"space-around" ,textAlign:"center"}}> 
                     <CardMedia
-                        style={{height:550, width: 550, marginRight: 20, borderRadius: 5 }}
+                        style={{height:550, width: 550, marginRight: 20, borderRadius: 5, backgroundSize: 'contain' }}
                         image={element.objeto.thumbnail}              
                         />                            
                     <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: '50vw'}}>

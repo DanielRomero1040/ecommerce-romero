@@ -4,35 +4,45 @@ import Grid from '@material-ui/core/Grid';
 import { CircularProgress } from "@material-ui/core";
 import { useParams } from "react-router";
 
+//firebase
+import { getFirestore } from "../firebase/";
 
 export default function ItemListContainer({name}){
     const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(false);
     let {categoryId} = useParams();
 
-    const traerProductos = () => {
-        setProductos([]);
-        if(categoryId){
-            fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}`)
-            .then(response => response.json())
-            .then(data => {
-                setProductos(data.results);
-            });
-        }else{
-            fetch(`https://api.mercadolibre.com/sites/MLA/search?category=MLA1144`)
-            .then(response => response.json())
-            .then(data => {
-                setProductos(data.results);
-            });
-        }
-    };
+    const getProducts = (category) => {
+        const db = getFirestore();
+        const itemCollection = db.collection("items").where('category', '==',category);
+        itemCollection.get().then((querySnapshot) => {
+            if(querySnapshot.size === 0){
+                console.log('no results')
+            }else{
+                let value = querySnapshot.docs.map(doc => doc.data())
+                setProductos(value)
+            }
+        }).catch(error => {
+            console.log('error', error)
+        }).finally(()=>{
+            setLoading(false);
+        })
+    }
 
     useEffect(() => {
-      traerProductos();
+        setLoading(true);
+        if(categoryId){
+            getProducts(categoryId)
+        }else{
+            getProducts('MLA1144')        
+        }
     }, [categoryId]);
+
+    console.log('productos',productos)
 
     return(        
         <Grid container justify="center" className="" style={{minHeight:"53vh"}}>
-            {productos.length === 0? (
+            {loading? (
                 <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
                     <CircularProgress/> 
                 </Grid>

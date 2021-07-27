@@ -18,7 +18,7 @@ const Item = (element) =>{
                     <CardMedia
                         image={element.objeto.thumbnail}
                         title={element.objeto.title}
-                        style={{minHeight: 250}}
+                        style={{minHeight: 250, backgroundSize: 'contain'}}
                     />
                 </Link>
                 <CardContent style={{textAlign: "center"}}>

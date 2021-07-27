@@ -25,21 +25,21 @@ function App() {
       <Grid container direction="column">
         <Router>
           <NavBar/>
-          <Switch>
-            <Route exact path="/">
-              <ItemListContainer/>
-            </Route>  
-            <Route exact path="/category/:categoryId">
-              <ItemListContainer/>
-            </Route>         
-            
-            <Route exact path="/products/:productoId">
-              <ItemDetailContainer/>
-            </Route>
-            <Route exact path="/cart">
-              <Cart/>
-            </Route>
-          </Switch>
+            <Switch>
+              <Route exact path="/">
+                <ItemListContainer/>
+              </Route>  
+              <Route exact path="/category/:categoryId">
+                <ItemListContainer/>
+              </Route>         
+              
+              <Route exact path="/products/:productoId">
+                <ItemDetailContainer/>
+              </Route>
+              <Route exact path="/cart">
+                <Cart/>
+              </Route>
+            </Switch>
           <Footer/> 
         </Router>
       </Grid>
