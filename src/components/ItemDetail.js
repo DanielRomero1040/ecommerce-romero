@@ -38,7 +38,7 @@ const ItemDetail = (element) =>{
                     <CardMedia
                         style={{height:550, width: 550, marginRight: 20, borderRadius: 5, backgroundSize: 'contain' }}
                         image={element.objeto.thumbnail}              
-                        />                            
+                    />                            
                     <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: '50vw'}}>
                         <Typography variant="h3" component="h2">
                             {element.objeto.title}

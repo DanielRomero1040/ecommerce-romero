@@ -56,16 +56,18 @@ const Cart = () => {
                     size="small"
                     onClick={()=> {clear()}} > 
                     Limpiar el Carrito 
-                    </Button> 
-                    <Button                     
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    onClick={()=> {}}
-                    style={{marginLeft:15}} 
-                    > 
-                    Continuar Compra 
-                    </Button> 
+                    </Button>
+                    <Link to={`/formBuy`}>
+                        <Button                     
+                        variant="contained"
+                        color="primary"
+                        size="small"
+                        onClick={()=> {}}
+                        style={{marginLeft:15}} 
+                        > 
+                        Continuar Compra 
+                        </Button>
+                    </Link>
                 </Grid>
             </Container>
         </Box>
