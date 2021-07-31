@@ -19,7 +19,7 @@ export default function NavBar(){
 
     return (
 
-    <AppBar position="static" style={{flexGrow:1}}>
+    <AppBar position="static" style={{flexGrow:1, backgroundColor: "black"}}>
         <Toolbar> 
             <Typography variant="h6" >
                 <Button>

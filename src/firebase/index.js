@@ -34,6 +34,15 @@ export const generateOrder = (formData, cart, total) => {
   return order.add(newOrder)
 }
 
+export const updateStock = (idItem) =>{
+  const db = getFirestore();
+  const item = db.collection("items").doc(idItem);
+
+  // let updateItemStock = item.update({
+  //   available_quantity: available_quantity
+  // });
+}
+
 export function fetchProducts(){
   const db = getFirestore();
   const itemCollection = db.collection("items");

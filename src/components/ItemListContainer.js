@@ -34,7 +34,20 @@ export default function ItemListContainer({name}){
         if(categoryId){
             getProducts(categoryId)
         }else{
-            getProducts('MLA1144')        
+            const db = getFirestore();
+            const itemCollection = db.collection("items");
+            itemCollection.get().then((querySnapshot) => {
+                if(querySnapshot.size === 0){
+                    console.log('no results')
+                }else{
+                    let value = querySnapshot.docs.map(doc => doc.data())
+                    setProductos(value)
+                }
+            }).catch(error => {
+                console.log('error', error)
+            }).finally(()=>{
+                setLoading(false);
+            })        
         }
     }, [categoryId]);
 

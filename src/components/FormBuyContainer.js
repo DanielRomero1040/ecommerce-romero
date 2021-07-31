@@ -52,7 +52,7 @@ export const FormBuyContainer = () => {
     });
     const [isGenerate, SetIsGenerate] = useState(false);
     const [orderId, SetOrderId] = useState('');
-    const {cart, total} = useContext(CartContext);
+    const {cart, total, clear} = useContext(CartContext);
 
     useEffect(() => {
         console.log(isGenerate)
@@ -64,9 +64,6 @@ export const FormBuyContainer = () => {
             [evt.target.name]: evt.target.value
         });
     }
-
-    verificarData(formData)
-
     return (
         <Grid container justify="center" className="" style={{minHeight:"53vh", paddingTop: "10vh"}}>
             <Grid item xs={false} sm={1}/>       
@@ -87,6 +84,7 @@ export const FormBuyContainer = () => {
                         onClick={()=> {
                             generateOrder(formData, cart, total ).then(({id})=>{SetOrderId(id)});
                             SetIsGenerate(!isGenerate);
+                            clear();
                         }}
                         style={{marginTop:20, marginBottom:20}} 
                         > 
