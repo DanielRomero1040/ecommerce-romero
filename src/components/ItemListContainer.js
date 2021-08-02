@@ -54,7 +54,7 @@ export default function ItemListContainer({name}){
     console.log('productos',productos)
 
     return(        
-        <Grid container justify="center" className="" style={{minHeight:"53vh"}}>
+        <Grid container justify="center" className="" style={{minHeight:"53vh",paddingBottom: 20}}>
             {loading? (
                 <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
                     <CircularProgress/> 

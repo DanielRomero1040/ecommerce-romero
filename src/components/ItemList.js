@@ -7,9 +7,9 @@ const ItemList = (props) => {
     return(
         <Grid container direction="column" alignItems="center" justify="center">  
             
-            <Grid container direction="column" alignItems="center" style={{padding: 20}}>
+            <Grid container direction="column" alignItems="center" style={{padding: 0}}>
                 <Typography variant="h3" component="h2">
-                    Item List
+                    Banners
                 </Typography>
             </Grid>
 
