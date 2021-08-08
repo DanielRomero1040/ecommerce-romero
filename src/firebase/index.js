@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-
 const firebaseConfig = {
     apiKey: "AIzaSyBRjZIewZ99G7kXPIRnVPZudwHNsVqlCZc",
     authDomain: "ecommerce-romero.firebaseapp.com",
@@ -24,34 +23,10 @@ export function getFirestore(){
 export const generateOrder = (formData, cart, total) => {
   const db = getFirestore();
   const order = db.collection("orders");
-
   const newOrder = {
     buyer: formData,
     items: cart,
     total: total
   };
-
   return order.add(newOrder)
-}
-
-export const updateStock = (idItem) =>{
-  const db = getFirestore();
-  const item = db.collection("items").doc(idItem);
-
-  // let updateItemStock = item.update({
-  //   available_quantity: available_quantity
-  // });
-}
-
-export function fetchProducts(){
-  const db = getFirestore();
-  const itemCollection = db.collection("items");
-  itemCollection.get().then((querySnapshot) => {
-      if(querySnapshot.size === 0){
-          console.log('no results')
-      }else{
-          return querySnapshot.docs.map(doc => doc.data())
-      }
-  })
-
 }

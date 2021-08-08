@@ -6,8 +6,7 @@ import AddCircle from "@material-ui/icons/AddCircle";
 import RemoveCircle from "@material-ui/icons/RemoveCircle";
 import { TextField } from "@material-ui/core";
 
-const ItemCount = ({stock, initial, onAdd, id}) => {
-    const [count, setCount] = useState(initial);
+const ItemCount = ({stock, onAdd, id, count, setCount}) => {
 
     const handleChange = (event) => {
         event.target.value > stock ? alert("no puede ser mayor que el stock") : setCount (Number(event.target.value))         
@@ -22,6 +21,7 @@ const ItemCount = ({stock, initial, onAdd, id}) => {
             setCount(count - 1);
         }
     };
+
     return(
         <div className="d-flex flex-column align-items-center">
             <div className="d-flex" style={{width:150, height:40, marginBottom:2}}>                

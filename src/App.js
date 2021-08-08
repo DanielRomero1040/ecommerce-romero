@@ -25,7 +25,7 @@ import CartCustomProvider from './context/CartContext';
 function App() {   
   return (
     <CartCustomProvider>
-      <Grid container direction="column">
+      <Grid container direction="column" style={{backgroundColor: "#ebebeb"}}>
         <Router>
           <NavBar/>
             <Switch>

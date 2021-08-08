@@ -35,7 +35,7 @@ export default function ItemDetailContainer(){
     }, [productoId]);
 
     return(        
-        <Grid container  justify="center" className="" style={{minHeight:"53vh"}}>
+        <Grid container  justify="center" className="" style={{minHeight:"53vh", paddingTop: 25, paddingBottom: 25}}>
             {loading? (
                 <Grid container direction="column" alignItems="center" style={{paddingTop:100}}>
                     <Grid item xs={12}>

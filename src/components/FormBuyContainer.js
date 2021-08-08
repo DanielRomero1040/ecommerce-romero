@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import InputsForm from './InputsForm';
 import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
@@ -51,12 +51,9 @@ export const FormBuyContainer = () => {
         age: ''
     });
     const [isGenerate, SetIsGenerate] = useState(false);
+    const [temporalCart, setTemporalCart] = useState()
     const [orderId, SetOrderId] = useState('');
     const {cart, total, clear} = useContext(CartContext);
-
-    useEffect(() => {
-        console.log(isGenerate)
-    }, [isGenerate])
 
     const handlerEvents = (evt) => {
         setFormData({
@@ -82,9 +79,12 @@ export const FormBuyContainer = () => {
                         color="primary"
                         size="small"
                         onClick={()=> {
-                            generateOrder(formData, cart, total ).then(({id})=>{SetOrderId(id)});
+                            generateOrder(formData, cart, total ).then(({id})=>{
+                                SetOrderId(id);
+                            });
                             SetIsGenerate(!isGenerate);
-                            clear();
+                            setTemporalCart([...cart])
+                            clear()
                         }}
                         style={{marginTop:20, marginBottom:20}} 
                         > 
@@ -94,7 +94,7 @@ export const FormBuyContainer = () => {
             </Grid>
             <Grid container item xs={12} sm={5}>
                 {isGenerate===true? (
-                    <Order orderId={orderId} formData={formData} cart={cart} total={total}/>
+                    <Order orderId={orderId} formData={formData} cart={temporalCart} total={total}/>
                 ):(
                     <p>Ingrese sus datos para finalizar su compra y generar su orden.</p>
                 )}

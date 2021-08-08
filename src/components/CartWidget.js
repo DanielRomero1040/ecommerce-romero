@@ -1,16 +1,10 @@
 import React, {useContext} from 'react';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Badge } from '@material-ui/core';
-
-//context
-
 import {CartContext} from '../context/CartContext';
 
  const CartWidget = () => {
-    const {cart} = useContext(CartContext);
-
-    const cartIndicator = cart.reduce((acum, e ) => acum += e.quantity, 0);
-
+    const {cartIndicator} = useContext(CartContext); 
     
     return (
         <span className="">             
@@ -18,7 +12,7 @@ import {CartContext} from '../context/CartContext';
             badgeContent={cartIndicator} 
             color="secondary">
                 <ShoppingCartIcon
-                style={{ color: "white" }}                   
+                style={{ color: "#736c28" }}                   
                 />
             </Badge> 
         </span>

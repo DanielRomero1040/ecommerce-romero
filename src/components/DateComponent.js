@@ -6,23 +6,18 @@ export default class DateComponent extends React.Component {
         super(props);
         this.state = { date: new Date()};
     }
-
     componentDidMount(){
         this.temporizadorId = setInterval(()=>{ this.tick()} ,1000)
     }
-
     componentWillUnmount(){
         clearInterval(this.temporizadorId);
     }
-
     tick(){
         this.setState ({ date: new Date()});
     }
-
     render(){
         return(
             <Reloj date = {this.state.date}/>
         );
     }
-
 }

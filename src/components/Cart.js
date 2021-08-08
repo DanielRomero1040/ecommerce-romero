@@ -4,23 +4,27 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button";
 import ItemsCart from './ItemsCart'
-
-import {    
-    Link
-  } from "react-router-dom";
-
-//context
+import {Link} from "react-router-dom";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 import {CartContext} from '../context/CartContext';
 
+const StyledCell = {
+    fontWeight: "bolder",
+    color: "white"
+}
 const Cart = () => {
-    const {removeItem,clear,cart,total, setTotal, addOneItem,substractOneItem} = useContext(CartContext);
-
-    const totalCart = cart.reduce((acum,e)=> acum += e.item.price * e.quantity , 0);
+    const {removeItem,clear,cart,total, getTotal, addOneItem,substractOneItem} = useContext(CartContext);
     
     useEffect(() => {
-        setTotal(totalCart)
-    }, [totalCart])
+        getTotal()
+    }, [cart])
 
     return(
         <Box px={{xs:3 , sm:5}} py={{xs:10, sm:10}} style={{minHeight:"53vh"}}>
@@ -39,17 +43,37 @@ const Cart = () => {
                     </Grid>
                 ):(
                     <Grid container spacing={5}>
-                        {cart.map((element)=>(
-                            <ItemsCart key={element.item.id} objeto={element} remover={removeItem} addOne={addOneItem} substractOne={substractOneItem}/>
-                        ))}                    
+                        <TableContainer component={Paper}>
+                            <Table aria-label="customized table">
+                                <TableHead>
+                                    <TableRow style={{backgroundColor: "gray"}}>
+                                        <TableCell style={StyledCell}>Productos</TableCell>
+                                        <TableCell style={StyledCell} align="center">Descripción</TableCell>
+                                        <TableCell style={StyledCell} align="center">Precio Unit.</TableCell>
+                                        <TableCell style={StyledCell} align="center"></TableCell>
+                                        <TableCell style={StyledCell} align="center">Cantidad</TableCell>
+                                        <TableCell style={StyledCell} align="center">Stock disp.</TableCell>
+                                        <TableCell style={StyledCell} align="center">Subtotal</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody> 
+                                    {cart.map((element)=>(
+                                        <ItemsCart key={element.item.id} objeto={element} remover={removeItem} addOne={addOneItem} substractOne={substractOneItem}/>
+                                    ))}
+                                        <TableRow key={"total"}>
+                                            <TableCell component="th" scope="row" align="center" ></TableCell>                                    
+                                            <TableCell align="left" ></TableCell>
+                                            <TableCell align="left" ></TableCell>
+                                            <TableCell align="left" ></TableCell>
+                                            <TableCell align="left" >Total a Pagar:</TableCell>
+                                            <TableCell align="left" style={{fontWeight: "bold", fontSize: 20}}>{total} $</TableCell>
+                                        </TableRow>                    
+                                </TableBody>
+                            </Table>
+                        </TableContainer> 
                     </Grid>
                 )}
-                <Grid container spacing={5} style={{display:"flex", justifyContent:"flex-end", padding:100}}>
-                    <Typography variant="h6" component="p">
-                      Total a Pagar:  {total} $
-                    </Typography>
-                </Grid>
-                <Grid container spacing={5} style={{display:"flex", justifyContent:"flex-end", padding:10}}>
+                <Grid container spacing={5} style={{display:"flex", justifyContent:"flex-end", padding:50}}>
                     <Button                        
                     variant="contained"
                     color="secondary"
@@ -57,17 +81,18 @@ const Cart = () => {
                     onClick={()=> {clear()}} > 
                     Limpiar el Carrito 
                     </Button>
-                    <Link to={`/formBuy`}>
-                        <Button                     
-                        variant="contained"
-                        color="primary"
-                        size="small"
-                        onClick={()=> {}}
-                        style={{marginLeft:15}} 
-                        > 
-                        Continuar Compra 
-                        </Button>
-                    </Link>
+                    <Button
+                    disabled={cart.length === 0}                   
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    onClick={()=> {}}
+                    style={{marginLeft:15}} 
+                    > 
+                        <Link to={`/formBuy`} style={{color:'white'}}>
+                            Continuar Compra 
+                        </Link>
+                    </Button>
                 </Grid>
             </Container>
         </Box>

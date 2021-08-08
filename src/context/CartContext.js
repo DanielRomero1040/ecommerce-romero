@@ -6,6 +6,8 @@ const CartCustomProvider = ({children}) =>{
     const [cart,setCart] = useState([]);
     const [total, setTotal] = useState(0);
 
+    const cartIndicator = cart.reduce((acum, e ) => acum += e.quantity, 0);
+
     const addItemToCart = ( element, value)=>{
         if(isInCart(element.objeto.id)){
             if(element.objeto.available_quantity < value){
@@ -44,10 +46,15 @@ const CartCustomProvider = ({children}) =>{
     const isInCart = (id)=>{
         let idItem = cart.find( el => el.item.id === id);
         return idItem
-    }    
+    }
+    
+   const getTotal = () => {
+        const totalCart = cart.reduce((acum,e)=> acum += e.item.price * e.quantity , 0);
+        setTotal(totalCart)
+   }
 
     return(
-        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, total, setTotal, addOneItem,substractOneItem}}>
+        <CartContext.Provider value={{cart, addItemToCart, removeItem, clear, total, getTotal, addOneItem,substractOneItem, cartIndicator}}>
             {children}
         </CartContext.Provider>
     )

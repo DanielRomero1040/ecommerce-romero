@@ -2,20 +2,14 @@ import React,{useState, useContext} from "react";
 import { Grid } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Box } from "@material-ui/core";
 import ItemCount from "./ItemCount";
-
 import {Link} from "react-router-dom";
-
-// context
-
 import { CartContext } from "../context/CartContext";
-
 
 const ItemDetail = (element) =>{
     const [count, setCount] = useState(1);
@@ -26,7 +20,6 @@ const ItemDetail = (element) =>{
         if(event){
             setShowButton(!showButton)
             setCount(value)
-            //-------context-------
             addItemToCart( element, value);
         }
     }
@@ -48,7 +41,7 @@ const ItemDetail = (element) =>{
                             {element.objeto.price} $
                         </Typography>
                         <Typography variant="body1" component="p">
-                            Cantidad disponible: {element.objeto.available_quantity}
+                            Cantidad disponible: {element.objeto.available_quantity - count}
                         </Typography>
                         <Typography variant="body1" component="p">
                             {element.objeto.warranty}
@@ -58,7 +51,7 @@ const ItemDetail = (element) =>{
                         </Typography>
 
                         {showButton===true? (
-                            <ItemCount stock={element.objeto.available_quantity} initial={1} onAdd={onAdd}  id={element.objeto.title} />
+                            <ItemCount stock={element.objeto.available_quantity} initial={1} onAdd={onAdd}  id={element.objeto.title} count={count} setCount={setCount}/>
                         ):(
                             <Link to={`/cart`}>
                                 <Button
