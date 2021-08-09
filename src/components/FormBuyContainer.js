@@ -67,8 +67,8 @@ export const FormBuyContainer = () => {
             <Grid container item xs={12} sm={5}>
                 {
                     inputs.map((el)=>(
-                        <Grid item  sm={10}>
-                            <InputsForm name={el.name} label={el.label} value={formData[el.name]} handlerEvents={handlerEvents} key={el.name} disable={isGenerate}/>
+                        <Grid item key={el.name} sm={10}>
+                            <InputsForm name={el.name} label={el.label} value={formData[el.name]} handlerEvents={handlerEvents} disable={isGenerate}/>
                         </Grid>
                     ))
                 } 

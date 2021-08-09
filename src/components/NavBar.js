@@ -50,7 +50,7 @@ export default function NavBar(){
                     <Link style={StyledLinks} to={`/category/${relojes}`}>Relojes</Link>
                 </Button>
             </Typography>
-            <Typography variant="p" style={{paddingTop: 12, marginLeft: 15}} >
+            <Typography variant="subtitle1" style={{paddingTop: 12, marginLeft: 15}} >
                 <DateComponent/>
             </Typography>
             <Button color="inherit">

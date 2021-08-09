@@ -62,7 +62,7 @@ export default function ItemListContainer({name}){
                 </Grid>
             ):(  
                 <> 
-                    <Grid container xs={12} style={{marginBottom: 20}}>
+                    <Grid container item xs={12} style={{marginBottom: 20}}>
                         {categoryId === "MLA1051" && <img src={bannerCelulares} alt="banner" style={{width:'98.9vw'}}/>}
                         {categoryId === "MLA1648" && <img src={bannerComputacion} alt="banner" style={{width:'98.9vw'}}/>}
                         {categoryId === "MLA1144" && <img src={bannerConsolas} alt="banner" style={{width:'98.9vw'}}/>}

@@ -28,10 +28,12 @@ const ItemDetail = (element) =>{
         <Grid item xs={12} justifycontent="center">
             <Box justifyContent="center">
                 <Card style={{width: '90vw' , padding: 20, display: "flex", justifyContent:"space-around" ,textAlign:"center"}}> 
+                {element.objeto.thumbnail ? (
                     <CardMedia
                         style={{height:550, width: 550, marginRight: 20, borderRadius: 5, backgroundSize: 'contain' }}
-                        image={element.objeto.thumbnail}              
-                    />                            
+                        image={element.objeto.thumbnail} 
+                        title={element.objeto.title}             
+                    />):(<></>)}                      
                     <CardContent style={{display:"flex", flexDirection: "column", justifyContent:"space-evenly", width: '50vw'}}>
                         <Typography variant="h3" component="h2">
                             {element.objeto.title}
