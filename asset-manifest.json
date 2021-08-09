@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/ecommerce-romero/static/css/main.1635e87c.chunk.css",
+    "main.js": "/ecommerce-romero/static/js/main.1381735a.chunk.js",
+    "main.js.map": "/ecommerce-romero/static/js/main.1381735a.chunk.js.map",
+    "runtime-main.js": "/ecommerce-romero/static/js/runtime-main.1113e290.js",
+    "runtime-main.js.map": "/ecommerce-romero/static/js/runtime-main.1113e290.js.map",
+    "static/js/2.515f001f.chunk.js": "/ecommerce-romero/static/js/2.515f001f.chunk.js",
+    "static/js/2.515f001f.chunk.js.map": "/ecommerce-romero/static/js/2.515f001f.chunk.js.map",
+    "static/js/3.a7c53f63.chunk.js": "/ecommerce-romero/static/js/3.a7c53f63.chunk.js",
+    "static/js/3.a7c53f63.chunk.js.map": "/ecommerce-romero/static/js/3.a7c53f63.chunk.js.map",
+    "index.html": "/ecommerce-romero/index.html",
+    "static/css/main.1635e87c.chunk.css.map": "/ecommerce-romero/static/css/main.1635e87c.chunk.css.map",
+    "static/js/2.515f001f.chunk.js.LICENSE.txt": "/ecommerce-romero/static/js/2.515f001f.chunk.js.LICENSE.txt",
+    "static/media/MLA1648.ce291629.jpg": "/ecommerce-romero/static/media/MLA1648.ce291629.jpg",
+    "static/media/bannerCelulares.77db3445.jpg": "/ecommerce-romero/static/media/bannerCelulares.77db3445.jpg",
+    "static/media/bannerConsolas.89503f87.jpg": "/ecommerce-romero/static/media/bannerConsolas.89503f87.jpg",
+    "static/media/bannerHome.1bdd9d60.jpg": "/ecommerce-romero/static/media/bannerHome.1bdd9d60.jpg",
+    "static/media/payment.c4da1642.svg": "/ecommerce-romero/static/media/payment.c4da1642.svg",
+    "static/media/protected.0d3e79f2.svg": "/ecommerce-romero/static/media/protected.0d3e79f2.svg",
+    "static/media/shipping.31d57297.svg": "/ecommerce-romero/static/media/shipping.31d57297.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1113e290.js",
+    "static/js/2.515f001f.chunk.js",
+    "static/css/main.1635e87c.chunk.css",
+    "static/js/main.1381735a.chunk.js"
+  ]
+}
