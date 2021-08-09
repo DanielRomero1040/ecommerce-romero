@@ -10,23 +10,28 @@ import { Order } from './Order';
 const inputs = [
     {
         name: 'name',
-        label: 'Nombre'
+        label: 'Nombre',
+        type: 'text'
     },
     {
         name: 'lastName',
-        label: 'Apellido'
+        label: 'Apellido',
+        type: 'text'
     },
     {
         name: 'phone',
-        label: 'Telefono'
+        label: 'Telefono',
+        type: 'tel'
     },
     {
         name: 'email',
-        label: 'email'
+        label: 'email',
+        type: 'email'
     },
     {
         name: 'age',
-        label: 'Edad'
+        label: 'Edad',
+        type: 'number'
     }
 ]
 
@@ -68,7 +73,7 @@ export const FormBuyContainer = () => {
                 {
                     inputs.map((el)=>(
                         <Grid item key={el.name} sm={10}>
-                            <InputsForm name={el.name} label={el.label} value={formData[el.name]} handlerEvents={handlerEvents} disable={isGenerate}/>
+                            <InputsForm name={el.name} label={el.label} value={formData[el.name]} handlerEvents={handlerEvents} disable={isGenerate} type={el.type}/>
                         </Grid>
                     ))
                 } 
