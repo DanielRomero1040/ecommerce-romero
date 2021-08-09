@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ecommerce-romero/static/css/main.1635e87c.chunk.css",
-    "main.js": "/ecommerce-romero/static/js/main.1381735a.chunk.js",
-    "main.js.map": "/ecommerce-romero/static/js/main.1381735a.chunk.js.map",
+    "main.js": "/ecommerce-romero/static/js/main.b4cf4a04.chunk.js",
+    "main.js.map": "/ecommerce-romero/static/js/main.b4cf4a04.chunk.js.map",
     "runtime-main.js": "/ecommerce-romero/static/js/runtime-main.1113e290.js",
     "runtime-main.js.map": "/ecommerce-romero/static/js/runtime-main.1113e290.js.map",
     "static/js/2.515f001f.chunk.js": "/ecommerce-romero/static/js/2.515f001f.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.1113e290.js",
     "static/js/2.515f001f.chunk.js",
     "static/css/main.1635e87c.chunk.css",
-    "static/js/main.1381735a.chunk.js"
+    "static/js/main.b4cf4a04.chunk.js"
   ]
 }
