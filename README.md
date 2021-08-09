@@ -1,11 +1,6 @@
 # IMI MELI - Imitación Mercado Libre
 
-_Imitación de Mercado Libre utilizando React Js:
-
-Dependencias utilizadas:
--material-ui/core
--material-ui/icons
--react-router-dom._
+_Imitación de Mercado Libre utilizando React Js, hooks, context, react router y firebase. Puede agregar productos al carrito de acuerdo al stock disponible y generar una orden de compra con un listado de productos._
 
 ## ⚙️ Librerías utilizadas
 
