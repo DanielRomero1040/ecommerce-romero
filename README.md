@@ -10,7 +10,7 @@ Dependencias utilizadas:
 ## ⚙️ Librerías utilizadas
 
 
-| library                                                          | used                      |
+| librería                                                         | usada                     |
 | ---------------------------------------------------------------- | ------------------------- |
 | [ReactJs](https://es.reactjs.org/)                               | JavaScript framework      |
 | [Create React App](https://github.com/facebook/create-react-app) | Create React Project      |
